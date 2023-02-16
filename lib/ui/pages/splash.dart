@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app_demo/ui/theme.dart';
 import 'start.dart';
+import 'homepage.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -11,7 +12,7 @@ class SplashScreen extends StatelessWidget {
     final orientation = context.orientation;
     final size = MediaQuery.of(context).size;
 
-    Widget GetStartedHeader = Container(
+    Widget GetStartedHeader = SizedBox(
       width: size.width,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
