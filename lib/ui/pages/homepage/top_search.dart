@@ -48,18 +48,15 @@ class TopsearchGridview extends StatelessWidget {
               crossAxisSpacing: 10,
               mainAxisSpacing: 20,
               itemBuilder: (context, index) {
-                return Container(
-                    child: Column(
+                return Column(
                   children: [
                     // CircleAvatar(
                     //   backgroundImage: AssetImage(searchitems[index].thumbnail),
                     //   radius: 30
                     // ),
+                    Image.asset(searchitems[index].thumbnail),
                     Container(
-                      child: Image.asset(searchitems[index].thumbnail),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 5),
                       child: Text(
                         searchitems[index].title,
                         style: PrimaryFont.fontSize(9),
@@ -67,7 +64,7 @@ class TopsearchGridview extends StatelessWidget {
                       ),
                     ),
                   ],
-                ));
+                );
               });
         });
   }

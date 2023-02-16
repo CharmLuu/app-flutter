@@ -38,8 +38,8 @@ class ProductInfo extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding:
-                    EdgeInsets.only(top: 15, bottom: 15, right: 10, left: 30),
+                padding: const EdgeInsets.only(
+                    top: 15, bottom: 15, right: 10, left: 30),
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/pdp_fs.png'),
@@ -49,7 +49,7 @@ class ProductInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(bottom: 5),
+                      margin: const EdgeInsets.only(bottom: 5),
                       child: Text(
                         'Kết thúc trong'.toUpperCase(),
                         style: PrimaryFont.bold(13),
@@ -69,7 +69,7 @@ class ProductInfo extends StatelessWidget {
                                 color: colorWhite,
                               )),
                         ),
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 5),
                           child: Text(':'),
                         ),
@@ -85,7 +85,7 @@ class ProductInfo extends StatelessWidget {
                                 color: colorWhite,
                               )),
                         ),
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 5),
                           child: Text(':'),
                         ),
@@ -116,16 +116,16 @@ class ProductInfo extends StatelessWidget {
             style: PrimaryFont.bold(20),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: ProductReview(),
         ),
-        Padding(
-          padding: const EdgeInsets.all(20),
+        const Padding(
+          padding: EdgeInsets.all(20),
           child: ProductShortDes(),
         ),
-        Padding(
-          padding: const EdgeInsets.all(20),
+        const Padding(
+          padding: EdgeInsets.all(20),
           child: ProductIntro(),
         ),
       ],

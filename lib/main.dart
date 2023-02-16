@@ -1,3 +1,4 @@
+import 'package:app_demo/ui/pages/homepage.dart';
 import 'package:app_demo/ui/pages/product.dart';
 import 'package:app_demo/ui/pages/start.dart';
 import 'package:app_demo/ui/pages/splash.dart';
