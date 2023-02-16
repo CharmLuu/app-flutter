@@ -36,7 +36,7 @@ class ProductItems extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20,
-                childAspectRatio: 0.58,
+                childAspectRatio: 0.5,
               ),
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
@@ -82,7 +82,7 @@ class ProductItems extends StatelessWidget {
                                       margin: const EdgeInsets.only(bottom: 5),
                                       child: Text(
                                         products[index].price,
-                                        style: PrimaryFont.bold(16),
+                                        style: PrimaryFont.bold(14),
                                       )),
                                   Container(
                                       margin: const EdgeInsets.only(bottom: 5),

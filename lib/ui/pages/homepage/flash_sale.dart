@@ -15,7 +15,7 @@ class FlashsaleHomepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       // decoration: BoxDecoration(
       //   image: DecorationImage(
       //     image: AssetImage("assets/images/bg-fs.png"),
@@ -26,19 +26,19 @@ class FlashsaleHomepage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(right: 25),
-            margin: EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(right: 25),
+            margin: const EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(60),
                 bottomRight: Radius.circular(60),
               ),
               color: colorTheme,
               boxShadow: [
-                BoxShadow( 
+                BoxShadow(
                   color: colorTheme.withOpacity(0.2),
                   // blurRadius: 4,
-                  offset: Offset(-9, -8),
+                  offset: const Offset(-9, -8),
                 )
               ],
               // image: DecorationImage(
@@ -50,13 +50,12 @@ class FlashsaleHomepage extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 37, top: 10, left: 25, bottom: 10),
-                  child: Text(
-                    'Săn sale Bỉm sữa'.toUpperCase(),
-                    style: PrimaryFont.fontSecond(18).copyWith(
-                      color: colorSecond,
-                    )
-                  ),
+                  padding: const EdgeInsets.only(
+                      right: 37, top: 10, left: 25, bottom: 10),
+                  child: Text('Săn sale Bỉm sữa'.toUpperCase(),
+                      style: PrimaryFont.fontSecond(18).copyWith(
+                        color: colorSecond,
+                      )),
                 ),
                 Positioned(
                   right: 0,
@@ -68,7 +67,6 @@ class FlashsaleHomepage extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 ),
-                
               ],
             ),
             // child: Text(
@@ -80,40 +78,38 @@ class FlashsaleHomepage extends StatelessWidget {
           ),
           Container(
             color: colorTheme,
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             child: Row(
               children: [
                 Container(
                   // color: colorBlack,
-                  margin: EdgeInsets.only(right: 10),
+                  margin: const EdgeInsets.only(right: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
                     color: colorWhite,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                    child: Text(
-                      '22',
-                      style: PrimaryFont.bold(14).copyWith(
-                        color: colorBlack,
-                      )
-                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                    child: Text('22',
+                        style: PrimaryFont.bold(14).copyWith(
+                          color: colorBlack,
+                        )),
                   ),
-                ), 
+                ),
                 Container(
-                  margin: EdgeInsets.only(right: 10),
+                  margin: const EdgeInsets.only(right: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
                     color: colorWhite,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                    child: Text(
-                      '56',
-                      style: PrimaryFont.bold(14).copyWith(
-                        color: colorBlack,
-                      )
-                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                    child: Text('56',
+                        style: PrimaryFont.bold(14).copyWith(
+                          color: colorBlack,
+                        )),
                   ),
                 ),
                 Container(
@@ -123,30 +119,27 @@ class FlashsaleHomepage extends StatelessWidget {
                     color: colorWhite,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                    child: Text(
-                      '34',
-                      style: PrimaryFont.bold(14).copyWith(
-                        color: colorBlack,
-                      )
-                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                    child: Text('34',
+                        style: PrimaryFont.bold(14).copyWith(
+                          color: colorBlack,
+                        )),
                   ),
-                ), 
+                ),
               ],
             ),
           ),
           Container(
             color: colorTheme,
-            padding: EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.only(bottom: 12),
             child: Container(
-              color: colorWhite,
-              padding: EdgeInsets.only(top: 20, left: 20),
-              child: ProductSlider()
-            ),
+                color: colorWhite,
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: const ProductSlider()),
           ),
         ],
       ),
     );
   }
 }
-

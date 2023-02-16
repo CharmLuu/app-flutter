@@ -58,7 +58,7 @@ class _ToolbarProductState extends State<ToolbarProduct> {
             ),
             Container(
               height: 30,
-              padding: EdgeInsets.only(left: 20, right: 35),
+              padding: const EdgeInsets.only(left: 20, right: 35),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: colorGreyLight2),

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class ProductIntro extends StatelessWidget {
@@ -7,6 +5,6 @@ class ProductIntro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('intro nef');
+    return const Text('intro nef');
   }
 }
