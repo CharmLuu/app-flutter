@@ -1,12 +1,12 @@
-import 'package:app_demo/ui/pages/homepage/banner.dart';
-import 'package:app_demo/ui/pages/homepage/banner_sale.dart';
-import 'package:app_demo/ui/pages/homepage/flash_sale.dart';
-import 'package:app_demo/ui/theme.dart';
 import 'package:flutter/material.dart';
 
+import '../theme.dart';
+import 'homepage/banner.dart';
+import 'homepage/banner_sale.dart';
 import 'homepage/best_seller.dart';
 import 'homepage/cate_widget.dart';
 import 'homepage/combo.dart';
+import 'homepage/flash_sale.dart';
 import 'homepage/top_search.dart';
 
 class HomePage extends StatelessWidget {
@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
     return Column(
       children: [
         const BannerHomepage(),
-        // TopSearchHomepage(),
+        TopSearchHomepage(),
         const FlashsaleHomepage(),
         const BannerSaleHomepage(),
         const BestsellerHomepage(),

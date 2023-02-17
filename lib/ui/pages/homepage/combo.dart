@@ -9,12 +9,13 @@ class ComboHomepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 30),
+      margin: EdgeInsets.only(top: 30),
       child: Column(
         children: [
           Container(
-            // padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-            margin: const EdgeInsets.only(bottom: 20),
+            // padding: EdgeInsets.symmetric(horizontal: 30),
+            width: MediaQuery.of(context).size.width - 60,
+            margin: EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: colorSecond,
@@ -28,17 +29,20 @@ class ComboHomepage extends StatelessWidget {
                   width: 64,
                   height: 63,
                   child: FittedBox(
-                    fit: BoxFit.fill,
                     child: Image.asset('assets/images/icons/combo1.png'),
+                    fit: BoxFit.fill,
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                  child: Text('Combo siêu tiết kiệm'.toUpperCase(),
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                  child: FittedBox(
+                    child: Text(
+                      'Combo siêu tiết kiệm'.toUpperCase(),
                       style: PrimaryFont.fontSecond(20).copyWith(
                         color: colorTheme,
-                      )),
+                      )
+                    ),
+                  ),
                 ),
                 Positioned(
                   right: -27,
@@ -46,23 +50,25 @@ class ComboHomepage extends StatelessWidget {
                   width: 50,
                   height: 50,
                   child: FittedBox(
-                    fit: BoxFit.fill,
                     child: Image.asset('assets/images/icons/combo2.png'),
+                    fit: BoxFit.fill,
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage("assets/images/bg-combo.png"),
-              // alignment: Alignment.centerRight,
-              fit: BoxFit.cover,
-            )),
-            child: const Padding(
-              padding: EdgeInsets.only(left: 20, bottom: 20),
+           Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/bg-combo.png"),
+                // alignment: Alignment.centerRight,
+                fit: BoxFit.cover,
+              )
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, bottom: 20),
               child: ProductSlider(),
+              
             ),
           ),
         ],

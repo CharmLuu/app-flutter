@@ -41,6 +41,12 @@ class BannersaleList extends StatelessWidget {
           );
         }
 
+        if(!snapshot.hasData){
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
         final bnsales = snapshot.data!;
         return CarouselSlider.builder(
           itemCount: bnsales.length, 
@@ -59,7 +65,7 @@ class BannersaleList extends StatelessWidget {
             );
           },
           options: CarouselOptions(
-            height: 120,
+            height: MediaQuery.of(context).size.height * 0.15,
             viewportFraction: .4,
             pageSnapping: true,
             padEnds: false,

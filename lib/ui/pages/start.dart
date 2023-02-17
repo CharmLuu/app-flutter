@@ -1,9 +1,9 @@
-import 'package:app_demo/ui/pages/homepage.dart';
-import 'package:app_demo/ui/theme.dart';
 import 'package:flutter/material.dart';
 
 import '../components/header.dart';
+import '../theme.dart';
 import 'category.dart';
+import 'homepage.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -16,14 +16,16 @@ class _StartPageState extends State<StartPage> {
   int _selectedIndex = 0;
 
   final tabs = [
-    const CategoryPage(),
+    HomePage(),
+    
     const Center(
       child: Text('Store locator'),
     ),
-    const Center(
-      child: Text('Danh mục'),
-    ),
-    // HomePage(),
+    // const Center(
+    //   child: Text('Danh mục'),
+    // ),
+    const CategoryPage(),
+    
     const Center(
       child: Text('Hotline'),
     ),
