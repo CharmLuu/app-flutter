@@ -28,35 +28,36 @@ class ProductFullDes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget fullContent = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Expanded(
-        //   child: ListView(
-        //     shrinkWrap: true,
-        //     children: [
-        //       ...attrAddtional
-        //     ],
-        //   )
-        //   .pb(),
-        // ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20, bottom: 10),
-          child: Text(
-            'Thành phần dinh dưỡng của sản phẩm',
-            style: PrimaryFont.bold(16),
+    Widget fullContent = SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListView(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            children: [
+              ...attrAddtional
+            ],
+          )
+          .pb(),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, bottom: 10),
+            child: Text(
+              'Thành phần dinh dưỡng của sản phẩm',
+              style: PrimaryFont.bold(16),
+            ),
           ),
-        ),
-        Text('Glico Icreo Balance Milk số 0 có thành phần dinh dưỡng: Chất béo dinh dưỡng điều chỉnh (mỡ phân loại, dầu oreo, dầu đậu tương, dầu dừa, dầu cọ), lactose, bột sữa, sữa bột tách béo, bột sữa giàu chất đạm, bột galacto, dầu tía tô, chất nhũ hóa (lecithin (chiết suất từ đậu tương)), canxi clorua, natri citrat, vitamin C, taurine, inositol, Cytidylic5, kẽm sunfat,sắt sunfat natri Uridylic, vitamin E, axit amin Nicotinic, canxi pantothenic, adenyl5, canxi inosinic, natri guanylate, đồng sunfat, vitamin B1, vitamin A, vitamin B2, vitamin B6, β-Carotene, axit folic, Biotin, vitamin D3, vitamin B12.'),
-        Padding(
-          padding: const EdgeInsets.only(top: 15, bottom: 10),
-          child: Text(
-            'Đặc điểm nổi bật của sản phẩm',
-            style: PrimaryFont.bold(16),
+          Text('Glico Icreo Balance Milk số 0 có thành phần dinh dưỡng: Chất béo dinh dưỡng điều chỉnh (mỡ phân loại, dầu oreo, dầu đậu tương, dầu dừa, dầu cọ), lactose, bột sữa, sữa bột tách béo, bột sữa giàu chất đạm, bột galacto, dầu tía tô, chất nhũ hóa (lecithin (chiết suất từ đậu tương)), canxi clorua, natri citrat, vitamin C, taurine, inositol, Cytidylic5, kẽm sunfat,sắt sunfat natri Uridylic, vitamin E, axit amin Nicotinic, canxi pantothenic, adenyl5, canxi inosinic, natri guanylate, đồng sunfat, vitamin B1, vitamin A, vitamin B2, vitamin B6, β-Carotene, axit folic, Biotin, vitamin D3, vitamin B12.'),
+          Padding(
+            padding: const EdgeInsets.only(top: 15, bottom: 10),
+            child: Text(
+              'Đặc điểm nổi bật của sản phẩm',
+              style: PrimaryFont.bold(16),
+            ),
           ),
-        ),
-        Text("Glico Icreo Balance Milk số 0 nội địa Nhật Bản dành cho bé từ sơ sinh đến 12 tháng tuổi là sản phẩm có giá trị cao nhất (Theo báo cáo của Công ty Nghiên cứu thị trường Intage Nhật Bản tháng 3/2017), được các mẹ Nhật tin dùng nhất (Giải thưởng Mother Selection Japan 2015) và là sự lựa chọn của hơn 900 bệnh viện tại đất nước Mặt trời mọc. Sản phẩm được sản xuất tại nhà máy Kaibaracho, tỉnh Hyogo, Nhật Bản - nơi không chịu ảnh hưởng của chất phóng xạ, có thành phần và mùi vị tự nhiên. Glico số 0 đặc biệt dành riêng cho giai đoạn đầu đời, khi hệ tiêu hóa của bé còn non nớt, giúp phòng chống bệnh táo bón hay tiêu chảy thường gặp ở các bé trong giai đoạn này. Bên cạnh đó, hàm lượng axit béo Palmitic và 5 loại Nucleotides vượt trội cho bé hệ tiêu hóa khỏe mạnh, tăng cường miễn dịch và hỗ trợ phát triển não bộ tinh anh. Dưỡng chất có nhiều trong sữa non (khử oxy xấu) chống oxy hóa và tăng khả năng miễn dịch (tăng sức đề kháng) cho bé giai đoạn đầu đời."),
-      ],
+          Text("Glico Icreo Balance Milk số 0 nội địa Nhật Bản dành cho bé từ sơ sinh đến 12 tháng tuổi là sản phẩm có giá trị cao nhất (Theo báo cáo của Công ty Nghiên cứu thị trường Intage Nhật Bản tháng 3/2017), được các mẹ Nhật tin dùng nhất (Giải thưởng Mother Selection Japan 2015) và là sự lựa chọn của hơn 900 bệnh viện tại đất nước Mặt trời mọc. Sản phẩm được sản xuất tại nhà máy Kaibaracho, tỉnh Hyogo, Nhật Bản - nơi không chịu ảnh hưởng của chất phóng xạ, có thành phần và mùi vị tự nhiên. Glico số 0 đặc biệt dành riêng cho giai đoạn đầu đời, khi hệ tiêu hóa của bé còn non nớt, giúp phòng chống bệnh táo bón hay tiêu chảy thường gặp ở các bé trong giai đoạn này. Bên cạnh đó, hàm lượng axit béo Palmitic và 5 loại Nucleotides vượt trội cho bé hệ tiêu hóa khỏe mạnh, tăng cường miễn dịch và hỗ trợ phát triển não bộ tinh anh. Dưỡng chất có nhiều trong sữa non (khử oxy xấu) chống oxy hóa và tăng khả năng miễn dịch (tăng sức đề kháng) cho bé giai đoạn đầu đời."),
+        ],
+      ),
     );
 
     return Container(
@@ -90,10 +91,10 @@ class ProductFullDes extends StatelessWidget {
                       child: Column(
                         children: [
                           AlertDialogTitle(data: 'Thông tin chi tiết'),
-                          Container(
-                            height: context.h * 0.7,
-                            child: SingleChildScrollView(child: fullContent)
-                          )
+                          // Container(
+                          //   height: context.h * 0.7,
+                          //   child: fullContent
+                          // )
                         ],
                       )
                     ), 
