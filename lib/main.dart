@@ -1,9 +1,10 @@
-import 'package:app_demo/ui/pages/homepage.dart';
-import 'package:app_demo/ui/pages/product.dart';
-import 'package:app_demo/ui/pages/start.dart';
-import 'package:app_demo/ui/pages/splash.dart';
-import 'package:app_demo/ui/theme.dart';
 import 'package:flutter/material.dart';
+
+import 'ui/pages/login.dart';
+import 'ui/pages/product.dart';
+import 'ui/pages/splash.dart';
+import 'ui/pages/start.dart';
+import 'ui/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: colorTheme,
-        fontFamily: 'Quicksand',
+        fontFamily: 'Nunito',
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: '$SplashScreen',
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '$SplashScreen': (_) => const SplashScreen(),
         '$StartPage': (_) => const StartPage(),
         '$ProductPage': (_) => const ProductPage(),
+        '$LoginPage': (_) => const LoginPage(),
       },
     );
   }

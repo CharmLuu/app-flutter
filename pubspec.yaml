@@ -46,6 +46,7 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   readmore: ^2.2.0
   material: ^1.0.0+2
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -96,13 +97,21 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-  - family: Quicksand
+  - family: Nunito
     fonts:
-      - asset: assets/fonts/Quicksand-Regular.ttf
+      - asset: assets/fonts/Nunito/Nunito-Regular.ttf
+      - asset: assets/fonts/Nunito/Nunito-Italic.ttf
+        style: italic
         weight: 400
-      - asset: assets/fonts/Quicksand-SemiBold.ttf
+
+      - asset: assets/fonts/Nunito/Nunito-SemiBold.ttf
+      - asset: assets/fonts/Nunito/Nunito-SemiBoldItalic.ttf
+        style: italic
         weight: 600
-      - asset: assets/fonts/Quicksand-Bold.ttf
+
+      - asset: assets/fonts/Nunito/Nunito-Bold.ttf
+      - asset: assets/fonts/Nunito/Nunito-BoldItalic.ttf
+        style: italic
         weight: 700
 
   - family: Montserrat

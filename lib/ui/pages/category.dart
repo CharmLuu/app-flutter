@@ -1,4 +1,3 @@
-import 'package:app_demo/ui/theme.dart';
 import 'package:flutter/material.dart';
 
 import '../components/brand_slider.dart';
