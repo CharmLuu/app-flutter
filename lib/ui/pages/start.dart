@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../components/header.dart';
 import '../theme.dart';
+import 'cart.dart';
 import 'category.dart';
 import 'homepage.dart';
 
@@ -17,18 +19,12 @@ class _StartPageState extends State<StartPage> {
 
   final tabs = [
     HomePage(),
-    
     const Center(
       child: Text('Store locator'),
     ),
-    // const Center(
-    //   child: Text('Danh mục'),
-    // ),
     const CategoryPage(),
     
-    const Center(
-      child: Text('Hotline'),
-    ),
+    CartPage(),
     const Center(
       child: Text('Account Dashboard'),
     ),
@@ -69,10 +65,8 @@ class _StartPageState extends State<StartPage> {
             label: 'Danh mục',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage("assets/images/icons/phone.png"),
-            ),
-            label: 'Hotline',
+            icon: Icon(FontAwesomeIcons.shoppingBag),
+            label: 'Giỏ hàng',
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(

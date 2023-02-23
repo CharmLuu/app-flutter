@@ -5,6 +5,7 @@ const colorSecond = Color(0xFFFCF065);
 const colorWhite = Color(0xFFFFFFFF);
 const colorBlack = Color(0xFF000000);
 const colorGrey1 = Color(0xFFBBBBBB);
+const colorGrey2 = Color(0xFF909090);
 const colorGreyLight1 = Color(0xFFEEEEEE);
 const colorGreyLight2 = Color(0xFFD9D9D9);
 const colorGreyLight3 = Color(0xFFF9F9F9);
@@ -12,6 +13,7 @@ const colorGreyLight3 = Color(0xFFF9F9F9);
 class PrimaryFont {
   static TextStyle fontSize(double size) {
     return TextStyle(
+      fontFamily: 'Nunito',
       fontSize: size,
     );
   }

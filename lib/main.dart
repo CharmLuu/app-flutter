@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'ui/pages/checkout.dart';
 import 'ui/pages/login.dart';
 import 'ui/pages/product.dart';
+import 'ui/pages/register.dart';
 import 'ui/pages/splash.dart';
 import 'ui/pages/start.dart';
 import 'ui/theme.dart';
@@ -29,6 +31,8 @@ class MyApp extends StatelessWidget {
         '$StartPage': (_) => const StartPage(),
         '$ProductPage': (_) => const ProductPage(),
         '$LoginPage': (_) => const LoginPage(),
+        '$Register': (_) => const Register(),
+        '$CheckoutPage': (_) => const CheckoutPage(),
       },
     );
   }

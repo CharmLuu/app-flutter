@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../pages/start.dart';
 import '../theme.dart';
 
 class Header extends StatelessWidget {
@@ -46,7 +47,12 @@ class Header extends StatelessWidget {
       child: Row(children: [
         Expanded(
           flex: 1,
-          child: SvgPicture.asset('assets/images/logo_main.svg')
+          child: InkWell(
+            onTap: (){
+              Navigator.of(context).pushNamed('$StartPage');
+            },
+            child: SvgPicture.asset('assets/images/logo_main.svg')
+          )
         ),
         Expanded(
           flex: 8,
