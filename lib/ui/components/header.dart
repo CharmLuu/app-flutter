@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../pages/start.dart';
 import '../theme.dart';
@@ -47,12 +48,18 @@ class Header extends StatelessWidget {
       child: Row(children: [
         Expanded(
           flex: 1,
-          child: InkWell(
-            onTap: (){
-              Navigator.of(context).pushNamed('$StartPage');
+          // child: InkWell(
+          //   onTap: (){
+          //     Navigator.of(context).pushNamed('$StartPage');
+          //   },
+          //   child: SvgPicture.asset('assets/images/logo_main.svg')
+          // )
+          child: TextButton(
+            onPressed: () {
+              Navigator.pop(context);
             },
-            child: SvgPicture.asset('assets/images/logo_main.svg')
-          )
+            child: const Icon(FontAwesomeIcons.angleLeft),
+          ),
         ),
         Expanded(
           flex: 8,

@@ -47,57 +47,107 @@ class RadioShippingMethod extends StatefulWidget {
   State<RadioShippingMethod> createState() => _RadioShippingMethodState();
 }
 
+class shippingList{
+  int index;
+  String name;
+  String price;
+  shippingList({required this.index, required this.name, required this.price});
+}
+
 class _RadioShippingMethodState extends State<RadioShippingMethod> {
-  int value = 1;
-  Widget CustomRadioButton(String text, int index) {
-    return FractionallySizedBox(
-      widthFactor: 1,
-      child: OutlinedButton(
-        onPressed: () {
-          setState(() {
-            value = index;
-          });
-        },
-        style: OutlinedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          side: BorderSide(
-            color: (value == index) ? colorTheme : colorGrey2,
-            width: (value == index) ? 2 : 1,
-          ),
-        ),
-        child: FittedBox(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  text,
-                  style: TextStyle(
-                    color: (value == index) ? colorTheme : Colors.black,
-                    fontWeight: FontWeight.w600
-                  ),
-                ),
-              ),
-              Icon(
-                (value == index) ? FontAwesomeIcons.solidCircleCheck : null,
-                color: colorTheme,
-                size: 14,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  String radioItem = 'Giao hàng tận nơi';
+  int id = 1;
+
+  List<shippingList> sList = [
+    shippingList(
+      index: 1,
+      name: "Giao hàng tận nơi",
+      price: "23.000d"
+    ),
+    shippingList(
+      index: 2,
+      name: "GHN",
+      price: "18.500d"
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        CustomRadioButton("Giao hàng tận nơi | 23.000đ", 1),
-        CustomRadioButton("Giao hàng nhanh | 18.700đ", 2),
-        CustomRadioButton("GHTK | 18.600đ", 3)
-      ],
+    return Container(
+      child: Column(
+        children: 
+          sList.map((e) => Card(
+            margin: EdgeInsets.only(bottom: 10),
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                color: (e.index == id)? colorTheme : colorGrey1,
+                width: (e.index == id)? 2.0 : 1.0
+              ),
+              borderRadius: BorderRadius.circular(20)
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Stack(
+                children: [
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${e.name}",
+                        style: PrimaryFont.semi(14).copyWith(
+                          color: (e.index == id)? colorTheme : colorBlack
+                        ),
+                      ),
+                      SizedBox(
+                        width: 12, 
+                        child: Text(
+                          '|',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: (e.index == id)? colorTheme : colorBlack
+                          ),
+                        ),
+                      ),
+                      Text(
+                        "${e.price}",
+                        style: PrimaryFont.semi(14).copyWith(
+                          color: (e.index == id)? colorTheme : colorBlack
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Visibility(
+                        visible: (e.index == id)? true : false,
+                        child: Icon(
+                          FontAwesomeIcons.solidCircleCheck,
+                          color: colorTheme,
+                        ),
+                      )
+                    ],
+                  ),
+                  Positioned(
+                  top: 0,
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Opacity(
+                    opacity: 0,
+                    child: Radio(
+                      groupValue: id,
+                      value: e.index,
+                      onChanged: (val) {
+                        setState(() {
+                          radioItem = e.name ;
+                          id = e.index;
+                        });
+                      },
+                    ),
+                  ),
+                )
+                ]
+              ),
+            ),
+          )).toList(),
+      ),
     );
   }
 }

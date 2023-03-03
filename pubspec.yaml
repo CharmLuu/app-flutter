@@ -47,6 +47,7 @@ dependencies:
   readmore: ^2.2.0
   material: ^1.0.0+2
   auto_size_text: ^3.0.0
+  flutter_swiper: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +82,7 @@ flutter:
     - assets/images/product/
     - assets/images/icons/
     - assets/images/brands/
+    - assets/images/splash/
 
     - assets/database/
   #   - images/a_dot_ham.jpeg

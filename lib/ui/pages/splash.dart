@@ -1,124 +1,168 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'start.dart';
-import 'homepage.dart';
-import '../theme.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+
+import 'package:app_demo/ui/theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'start.dart';
+
+class SplashSlider extends StatefulWidget {
+  const SplashSlider({super.key});
+
+  @override
+  State<SplashSlider> createState() => _SplashSliderState();
+}
+
+class _SplashSliderState extends State<SplashSlider> {
+  List<spSlider> spitems = [
+    spSlider(
+      title: "Welcome to",
+      subtitle: 'Green Garden',
+      urlImg: "assets/images/splash/img1.png"
+    ),
+    spSlider(
+      title: "Mua sắm mọi thứ",
+      subtitle: 'dễ dàng',
+      urlImg: "assets/images/splash/img2.png"
+    ),
+    spSlider(
+      title: "Miễn phí",
+      subtitle: 'giao hàng',
+      urlImg: "assets/images/splash/img3.png"
+    ),
+  ];
+
+  final bool loop = false;
+  int _currentIndex = 0;
+  bool inLastPage = false;
+  void initState() {
+    _controller = SwiperController();
+    // _loop = false;
+    super.initState();
+  }
+
+  Widget buildSwiper() {
+    return Swiper(
+      controller: _controller,
+      loop: false,
+      index: _currentIndex,
+      onIndexChanged: (index){
+        setState(() {
+          _currentIndex = index;
+        });
+
+        if (index == spitems.length - 1)
+          setState(() {
+            inLastPage = true;
+          });
+          else {
+            setState(() {
+              inLastPage = false;
+            });
+          }
+      },
+      itemCount: spitems.length,
+      itemBuilder: (context, index) {
+        final itemImg = spitems[index].urlImg;
+        return Column(
+          children: [
+            Flexible(
+              flex: 1,
+              child: FittedBox(
+                child: Column(
+                  children: [
+                    Text(spitems[index].title),
+                    Text(
+                      spitems[index].subtitle,
+                      style: PrimaryFont.semi(18).copyWith(
+                        color: colorTheme
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ),
+            Flexible(
+              flex: 9,
+              fit: FlexFit.tight,
+              child: Container(
+                padding: EdgeInsets.only(top: 15),
+                width: context.w,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(11),
+                  child: FittedBox(
+                    child: Image.asset(itemImg),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            )
+          ],
+        );
+      },
+    );
+  } 
+
+  late SwiperController _controller; 
 
   @override
   Widget build(BuildContext context) {
-    final orientation = context.orientation;
-    final size = MediaQuery.of(context).size;
-
-    Widget GetStartedHeader = SizedBox(
-      width: size.width,
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Expanded(child: SvgPicture.asset('assets/images/logo.svg')),
-            Expanded(
-                child: Column(
-              children: [
-                Flexible(
-                  child: FittedBox(
-                    alignment: Alignment.center,
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text: 'Hello, Welcome \n',
-                        style: PrimaryFont.fontSize(30).copyWith(
-                          color: colorWhite,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        children: const <TextSpan>[
-                          TextSpan(
-                            text: 'to Silent Moon',
-                            style: TextStyle(fontWeight: FontWeight.w300),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  // width: size.width,
-
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: FittedBox(
-                      child: Text(
-                        "Explore the app, Find some peace of mind to \n prepare for meditation.",
-                        style: PrimaryFont.fontSize(16).copyWith(
-                            color: const Color(0xFFEBEAEC),
-                            fontWeight: FontWeight.w300),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            )),
-          ],
+    Widget buildPager() => Container(
+      transform: Matrix4.translationValues(0.0, -14.0, 0.0),
+      child: AnimatedSmoothIndicator(
+        activeIndex: _currentIndex,
+        count: spitems.length,
+        effect: ExpandingDotsEffect(
+          dotColor:  colorGreyLight2,
+          activeDotColor: colorTheme,
+          dotWidth: 6,
+          dotHeight: 6,
         ),
       ),
     );
 
     return Scaffold(
-      backgroundColor: const Color(0xFF8E97FD),
       body: SafeArea(
-        child: Stack(
+        child: Column(
           children: [
-            Align(
-                alignment: Alignment.bottomCenter,
-                child: FractionallySizedBox(
-                  widthFactor: 1,
-                  heightFactor: .6,
-                  child: Transform.scale(
-                    scale: 1.2,
-                    child: FittedBox(
-                      // child: Image.asset('assets/images/bn-splash.png'),
-                      child: SvgPicture.asset('assets/images/bn-splash.svg'),
-                      // fit: BoxFit.cover,
-                    ),
-                  ),
-                )),
-            FractionallySizedBox(
-              heightFactor: .35,
-              child: GetStartedHeader,
+            Container(
+              height: context.h - 175,
+              child: buildSwiper()
             ),
-            Align(
-              alignment: const Alignment(0.0, 0.85),
+            buildPager(),
+            SizedBox(height: 5,),
+            Visibility(
+              visible: !inLastPage,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('$StartPage');
-                },
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(colorSecond),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30))),
-                    padding:
-                        MaterialStateProperty.all(const EdgeInsets.all(20)),
-                    elevation: MaterialStateProperty.all(0),
-                    fixedSize:
-                        MaterialStateProperty.all(Size(size.width * 0.8, 60
-                            // size.height * 0.05,
-                            )),
-                    foregroundColor: MaterialStateProperty.all(colorBlack),
-                    textStyle: MaterialStateProperty.all(const TextStyle(
-                      // fontSize: size.height * 0.018,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ))),
-                child: Text('Trang chủ'.toUpperCase()),
+                  _controller.next(animation: true);
+                }, 
+                child: Text('Tiếp tục'),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size.fromHeight(40)
+                ),
+              ),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed("$StartPage");
+              }, 
+              child: Text('Trang chủ'),
+              style: OutlinedButton.styleFrom(
+                minimumSize: Size.fromHeight(40)
               ),
             )
           ],
-        ),
+        ).p(),
       ),
     );
   }
+}
+
+class spSlider{
+  String title;
+  String subtitle;
+  String urlImg;
+  spSlider({required this.subtitle, required this.title, required this.urlImg});
 }

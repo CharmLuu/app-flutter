@@ -14,15 +14,18 @@ class ThemeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 15),
+      margin: EdgeInsets.only(bottom: 20),
       padding: EdgeInsets.symmetric(horizontal: 20),
-      height: 36,
+      height: 40,
       decoration: BoxDecoration(
         border: Border.all(color: colorGrey1),
-        borderRadius: BorderRadius.circular(20)
+        borderRadius: BorderRadius.circular(20),
+        // color: colorGreyLight2
       ),
       child: TextField(
         decoration: new InputDecoration(
+          // border: InputBorder.none,
+          // focusedBorder: InputBorder.none,
           labelText: data,
           contentPadding: EdgeInsets.symmetric(vertical: 5.0),
           floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -48,9 +51,9 @@ class ThemeTextFieldTel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 15),
+      margin: EdgeInsets.only(bottom: 20),
       padding: EdgeInsets.only(left: pl, right: pr),
-      height: 36,
+      height: 40,
       decoration: BoxDecoration(
         border: Border.all(color: colorGrey1),
         borderRadius: BorderRadius.circular(20)
@@ -143,9 +146,9 @@ class _DatePickerFieldState extends State<DatePickerField> {
     return InkWell(
       onTap: () => _selectDate(context),
       child: Container(
-        margin: EdgeInsets.only(bottom: 15),
+        margin: EdgeInsets.only(bottom: 20),
         padding: EdgeInsets.only(left: 20, right: 20),
-        height: 36,
+        height: 40,
         width: context.w - 40,
         decoration: BoxDecoration(
           border: Border.all(color: colorGrey1),
@@ -197,7 +200,7 @@ class EmailField extends StatelessWidget {
     return Form(
       autovalidateMode: AutovalidateMode.always,
       child: Container(
-        margin: EdgeInsets.only(bottom: 15),
+        margin: EdgeInsets.only(bottom: 20),
         child: TextFormField(
           validator: validateEmail,
           // keyboardType: TextInputType.emailAddress,
@@ -240,7 +243,7 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 15),
+      margin: EdgeInsets.only(bottom: 20),
       child: Stack(
         children: [
           TextFormField(
@@ -248,8 +251,8 @@ class _PasswordFieldState extends State<PasswordField> {
             enableSuggestions: false,
             autocorrect: false,
             decoration: new InputDecoration(
-              hintText: 'Mật khẩu',
-              contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              hintText: widget.data,
+              contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
               isDense: true, 
               floatingLabelBehavior: FloatingLabelBehavior.never,
               enabledBorder: OutlineInputBorder(
@@ -268,7 +271,7 @@ class _PasswordFieldState extends State<PasswordField> {
             child: TextButton(
               onPressed: _toggle,
               child: Icon(
-                _obscureText ? FontAwesomeIcons.eye : FontAwesomeIcons.eyeSlash,
+                _obscureText ? FontAwesomeIcons.eyeSlash : FontAwesomeIcons.eye,
                 color: colorBlack,
                 size: 16,
               ),

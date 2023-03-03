@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../components/header.dart';
 import '../theme.dart';
+import 'account/account_dashboard.dart';
 import 'cart.dart';
 import 'category.dart';
 import 'homepage.dart';
@@ -23,11 +24,8 @@ class _StartPageState extends State<StartPage> {
       child: Text('Store locator'),
     ),
     const CategoryPage(),
-    
     CartPage(),
-    const Center(
-      child: Text('Account Dashboard'),
-    ),
+    AccountDashBoard(),
   ];
 
   @override

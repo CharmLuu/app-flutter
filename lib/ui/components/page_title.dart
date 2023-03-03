@@ -23,6 +23,7 @@ class PageTitle extends StatelessWidget {
         style: PrimaryFont.fontSecond(16).copyWith(
           color: colorTheme,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }

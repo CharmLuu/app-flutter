@@ -1,3 +1,4 @@
+import 'package:app_demo/ui/components/header.dart';
 import 'package:app_demo/ui/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,67 +14,55 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20, bottom: 30),
-          child: Column(
-            children: [
-              Flexible(
-                flex: 2,
-                child: Center(child: SvgPicture.asset('assets/images/icons/logo.svg'))
-              ),
-              Expanded(
-                flex: 6,
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Chào Ba mẹ,'),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 3, bottom: 10),
-                        child: RichText(
-                          text: TextSpan(
-                            text: 'Vui lòng Đăng nhập hoặc ',
-                            style: PrimaryFont.fontSize(14).copyWith(
-                              color: colorBlack
-                            ),
-                            children: [
-                              WidgetSpan(
-                                child: InkWell(
-                                  onTap: (){
-                                    Navigator.of(context).pushNamed('$Register');
-                                  },
-                                  child: Text(
-                                    "Tạo tài khoản",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.underline,
-                                    ),
+        child: Column(
+          children: [
+            Header(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Chào Ba mẹ,'),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3, bottom: 10),
+                      child: RichText(
+                        text: TextSpan(
+                          text: 'Vui lòng Đăng nhập hoặc ',
+                          style: PrimaryFont.fontSize(14).copyWith(
+                            color: colorBlack
+                          ),
+                          children: [
+                            WidgetSpan(
+                              child: InkWell(
+                                onTap: (){
+                                  Navigator.of(context).pushNamed('$Register');
+                                },
+                                child: Text(
+                                  "Tạo tài khoản",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline,
                                   ),
                                 ),
-                              )
-                            ],
-                          ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      TabFormLogin(),
-                      FormLoginContainer(),                
-                    ],
-                  )
+                    ),
+                    FormLoginContainer(),   
+                    Container(
+                      padding: EdgeInsets.only(top: 30),
+                      child: Text(
+                        'Bằng việc Đăng Nhập / Tạo Tài Khoản, bạn đã đồng ý với Điều khoản & Chính sách bảo vệ cá nhân của BBB',
+                        textAlign: TextAlign.center,
+                      ),
+                    )             
+                  ],
                 )
-              ),
-              Flexible(
-                flex: 2,
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    'Bằng việc Đăng Nhập / Tạo Tài Khoản, bạn đã đồng ý với Điều khoản & Chính sách bảo vệ cá nhân của BBB',
-                    textAlign: TextAlign.center,
-                  )
-                )
-              ),
-            ],
-          )
-          .pxBase(),
+              ).p(),
+            ),
+          ],
         )
       )
     );
@@ -88,6 +77,7 @@ class FormLoginContainer extends StatelessWidget {
     return Container(
       child: Column(
         children: [
+          TabFormLogin(),
           ElevatedButton(
             onPressed: () {}, 
             child: Text(
@@ -126,42 +116,7 @@ class TabFormLogin extends StatefulWidget {
 
 class _TabFormLoginState extends State<TabFormLogin> with SingleTickerProviderStateMixin {
   late TabController _controller;
-  final List<Tab> topTabs = <Tab>[
-    Tab(
-      child: Row(
-        children: [
-          Icon(
-            FontAwesomeIcons.phone,
-            size: 16,
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 5),
-            child: Text(
-              'Số điện thoại',
-              style: PrimaryFont.fontSize(14),
-            ),
-          )
-        ],
-      ),
-    ),
-    Tab(
-      child: Row(
-        children: [
-          Icon(
-            FontAwesomeIcons.envelope,
-            size: 16,
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 5),
-            child: Text(
-              'Email',
-              style: PrimaryFont.fontSize(14),
-            ),
-          )
-        ],
-      ),
-    ),
-  ];
+  int activeTabIndex = 1;
 
   @override
   void initState() {
@@ -169,9 +124,14 @@ class _TabFormLoginState extends State<TabFormLogin> with SingleTickerProviderSt
 
    _controller = TabController(
       vsync: this, 
-      length: topTabs.length,
+      length: 2,
       initialIndex: 0,
     );
+    _controller.addListener(() {
+      setState(() {
+        activeTabIndex = _controller.index;
+      });
+    });
   }
 
   @override
@@ -187,13 +147,70 @@ class _TabFormLoginState extends State<TabFormLogin> with SingleTickerProviderSt
       children: [
         TabBar(
           controller: _controller,
-          tabs: topTabs,
+          tabs: [
+            Tab(
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                child: FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.phone,
+                        size: 16,
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 5),
+                        child: Text(
+                          'Số điện thoại',
+                          style: PrimaryFont.fontSize(14),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Tab(
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                child: FittedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.envelope,
+                        size: 16,
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 5),
+                        child: Text(
+                          'Email',
+                          style: PrimaryFont.fontSize(14),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
           labelColor: colorTheme,
           unselectedLabelColor: colorBlack,
-          indicatorColor: Colors.transparent
+          indicatorColor: Colors.transparent,
+          indicator: BoxDecoration(
+            border: Border.all(color: colorTheme),
+            borderRadius: BorderRadius.circular(20),
+            // color: colorSecond
+          ),
+          indicatorPadding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+          padding: EdgeInsets.zero,
+          labelPadding: EdgeInsets.zero,
+          // indicatorWeight: 4,
         ),
         Container(
-          height: 100,
+          margin: EdgeInsets.only(top: 15),
+          height: 120,
           child: TabBarView(
             controller: _controller,
             children: [

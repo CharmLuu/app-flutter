@@ -60,8 +60,11 @@ class ShippingAddress extends StatelessWidget {
                       children: [
                         AlertDialogTitle(data: 'Đăng nhập'),
                         Container(
+                          height: context.h * 0.5,
+                          width: context.w,
                           padding: EdgeInsets.symmetric(vertical: 20),
                           child: FormLoginContainer()
+                          // child: Text('1213')
                         ),
                       ],
                     )

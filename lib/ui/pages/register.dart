@@ -1,3 +1,4 @@
+import 'package:app_demo/ui/components/header.dart';
 import 'package:app_demo/ui/components/text_field.dart';
 import 'package:app_demo/ui/theme.dart';
 import 'package:flutter/material.dart';
@@ -10,57 +11,49 @@ class Register extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20, bottom: 40),
-          child: Column(children: [
-            Flexible(
-              flex: 2,
-              child: Center(child: SvgPicture.asset('assets/images/icons/logo.svg'))
-            ),
-            Expanded(
-              flex: 8,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    ThemeTextField(data: 'Tên'),
-                    DatePickerField(title: 'Ngày sinh'),
-                    EmailField(),
-                    FormFieldTel(), 
-                    PasswordField(data: 'Mật khẩu'),
-                    PasswordField(data: 'Xác nhận mật khẩu'),
-                    ElevatedButton(
-                      onPressed: () {}, 
-                      child: Text(
-                        'Đăng ký',
-                        style: PrimaryFont.bold(16),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: colorTheme,
-                        fixedSize: Size(context.w - 40, 40),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
+        child: Column(children: [
+          Header(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ThemeTextField(data: 'Tên'),
+                  DatePickerField(title: 'Ngày sinh'),
+                  EmailField(),
+                  FormFieldTel(), 
+                  PasswordField(data: 'Mật khẩu'),
+                  PasswordField(data: 'Xác nhận mật khẩu'),
+                  ElevatedButton(
+                    onPressed: () {}, 
+                    child: Text(
+                      'Đăng ký',
+                      style: PrimaryFont.bold(16),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: colorTheme,
+                      fixedSize: Size(context.w - 40, 40),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 30),
-                      child: const Divider(
-                        height: 1,
-                        color: colorGreyLight2,
-                        thickness: 1,
-                        // indent: 20,
-                        // endIndent: 20,
-                      ),
-                    ), 
-                    LoginWithSocial(),
-                  ],
-                ),
-              )
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 30),
+                    child: const Divider(
+                      height: 1,
+                      color: colorGreyLight2,
+                      thickness: 1,
+                      // indent: 20,
+                      // endIndent: 20,
+                    ),
+                  ), 
+                  LoginWithSocial(),
+                ],
+              ).p(),
             )
-            
-          ])
-          .pxBase(),
-        ),
+          )
+          
+        ])
       ),
     );
   }

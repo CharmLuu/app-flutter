@@ -1,0 +1,16 @@
+[
+    {
+      "name": "Túi Xách Lớn Tote Khóa Xoay Monogram",
+      "price": "799.000đ",
+      "old_price": "920.000đ",
+      "urlImg": "assets/images/product/pr1.png",
+      "qty": "2"
+    },
+    {
+      "name": "Test01",
+      "price": "799.000đ",
+      "old_price": "920.000đ",
+      "urlImg": "assets/images/product/pr2.png",
+      "qty": "1"
+    }
+]
